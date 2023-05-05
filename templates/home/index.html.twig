@@ -7,7 +7,11 @@
 <h2>Accueil</h2>
 
 <p>Page d'Accueil</p>
-
+{% if app.user %}
+    <pre>
+        {{ dump(app.user) }}
+    </pre>
+{% endif %}
 {% endblock %}
 
 

@@ -35,6 +35,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 150)]
     private ?string $lastname = null;
 
+    #[ORM\Column(type: 'boolean')]
+    private ?bool $is_verified = false;
+
     #[ORM\Column(type: 'datetime_immutable', options: ['default'=> 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $created_at = null;
 
@@ -133,6 +136,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of is_verified
+     */ 
+    public function getIsVerified(): bool
+    {
+        return $this->is_verified;
+    }
+
+    /**
+     * Set the value of is_verified
+     *
+     * @return  self
+     */ 
+    public function setIsVerified($is_verified): self
+    {
+        $this->is_verified = $is_verified;
 
         return $this;
     }
