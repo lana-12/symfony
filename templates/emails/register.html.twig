@@ -1,5 +1,8 @@
 <h1>Avtivez votre compte</h1>
 <p>Bonjour {{ user.lastname }}</p>
 <p>Votre inscription sur le site monSite est à valider en cliquantsur le lien ci dessous :</p>
-<p><a href="#">Lien</a></p>
+<p>
+	<a href="{{ absolute_url(path('verify_user', {token: token})) }}">Lien</a>
+</p>
+
 <p>Ce lien expirera dans trois heures</p>
